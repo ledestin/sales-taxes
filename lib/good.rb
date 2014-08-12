@@ -3,6 +3,7 @@ require 'csv'
 class Good
   def self.parse_all str
     CSV.parse(str).map! { |row|
+      row.each { |el| el.strip! }
       Good.new row
     }
   end
