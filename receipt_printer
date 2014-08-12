@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
 
+require './lib/receipt'
+
+def parse_goods(lines)
+end
+
 goods = parse_goods($stdin.read)
 puts Receipt.new(goods)
