@@ -15,7 +15,7 @@ describe Good do
   end
 
   it "#new fills atrributes from passed array" do
-    good = Good.new ["1", "book", "12.49"]
+    good = Good.new [1, "book", 12.49]
     expect(good.quantity).to eq 1
     expect(good.name).to eq "book"
     expect(good.price).to eq 12.49

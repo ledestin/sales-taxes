@@ -2,8 +2,8 @@ require 'csv'
 
 class Good
   def self.parse_all str
-    CSV.parse(str).map! { |row|
-      row.each { |el| el.strip! }
+    CSV.parse(str, :converters => :numeric).map! { |row|
+      row.each { |el| el.strip! if el.is_a?(String) }
       Good.new row
     }
   end
@@ -11,6 +11,6 @@ class Good
   attr_reader :quantity, :name, :price
 
   def initialize ar
-    @quantity, @name, @price = Integer(ar[0]), ar[1], Float(ar[2])
+    @quantity, @name, @price = *ar
   end
 end
