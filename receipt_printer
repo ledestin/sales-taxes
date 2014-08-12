@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+goods = parse_goods($stdin.read)
+puts Receipt.new(goods)
