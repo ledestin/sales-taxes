@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby
 
+require './lib/good'
 require './lib/receipt'
 
-def parse_goods(lines)
-end
-
-goods = parse_goods($stdin.read)
+goods = Good.parse_all($stdin.read)
 puts Receipt.new(goods)
