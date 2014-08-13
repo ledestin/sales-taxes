@@ -39,4 +39,16 @@ describe Good do
       expect(good.tax).to eq 1.5
     end
   end
+
+  describe "#total returns sum of price + tax, multiplied by quantity" do
+    it "one book" do
+      good = Good.new 1, "music CD", 10.0
+      expect(good.total).to eq 11
+    end
+
+    it "two books" do
+      good = Good.new 2, "music CD", 10.0
+      expect(good.total).to eq 22
+    end
+  end
 end

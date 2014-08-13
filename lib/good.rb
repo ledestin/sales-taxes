@@ -22,7 +22,7 @@ class Good
   end
 
   def total
-    (price + tax).round(2)
+    ((price + tax) * quantity).round(2)
   end
 
   def to_s
