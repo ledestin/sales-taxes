@@ -5,8 +5,8 @@ def run input, expected_output
   expect(output).to eq expected_output
 end
 
-describe 'receipt_printer' do
-  it 'given products, prints receipt' do
+describe "receipt_printer, given products, prints receipt" do
+  it "input 1" do
     INPUT = <<EOF
 Quantity, Product, Price
 1, book, 12.49
