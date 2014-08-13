@@ -1,5 +1,10 @@
 require 'open3'
 
+def run input, expected_output
+  output, = Open3.capture2e('./receipt_printer', :stdin_data => input)
+  expect(output).to eq expected_output
+end
+
 describe 'receipt_printer' do
   it 'given products, prints receipt' do
     INPUT = <<EOF
@@ -16,8 +21,6 @@ EOF
 Sales Taxes: 1.50
 Total: 29.83
 EOF
-
-    output, = Open3.capture2e('./receipt_printer', :stdin_data => INPUT)
-    expect(output).to eq EXPECTED_OUTPUT
+    run(INPUT, EXPECTED_OUTPUT)
   end
 end
