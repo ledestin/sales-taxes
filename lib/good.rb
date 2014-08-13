@@ -31,6 +31,6 @@ class Good
 
   private
   def round_tax number
-    ((number * (1 / 0.05)).round / (1 / 0.05)).round(2)
+    ((number * (1 / 0.05)).ceil / (1 / 0.05)).round(2)
   end
 end
