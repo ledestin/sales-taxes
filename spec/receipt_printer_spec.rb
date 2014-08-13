@@ -17,7 +17,7 @@ Sales Taxes: 1.50
 Total: 29.83
 EOF
 
-    output, = Open3.capture2e('./receipt_printer', INPUT)
+    output, = Open3.capture2e('./receipt_printer', :stdin_data => INPUT)
     expect(output).to eq EXPECTED_OUTPUT
   end
 end
