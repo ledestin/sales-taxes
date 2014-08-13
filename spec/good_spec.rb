@@ -38,6 +38,11 @@ describe Good do
       good = Good.new 1, "music CD", 14.99
       expect(good.tax).to eq 1.5
     end
+
+    it "rounded up to the nearest 0.05" do
+      good = Good.new 1, "imported bottle of perfume", 47.50
+      expect(good.tax).to eq 7.15
+    end
   end
 
   describe "#total returns sum of price + tax, multiplied by quantity" do

@@ -18,7 +18,7 @@ class Good
   end
 
   def tax
-    (price * TaxRegistry.tax_for_good(name)).round(2)
+    round_tax(price * TaxRegistry.tax_for_good(name))
   end
 
   def total
@@ -27,5 +27,10 @@ class Good
 
   def to_s
     [quantity, name, sprintf("%.2f", total)].map! { |el| el.to_s }.join(", ")
+  end
+
+  private
+  def round_tax number
+    ((number * (1 / 0.05)).round / (1 / 0.05)).round(2)
   end
 end
