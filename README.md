@@ -39,7 +39,7 @@ Quantity, Product, Price
 ## Output 1
 ```
 1, book, 12.49
-1, music CD, 16.49
+1, music cd, 16.49
 1, chocolate bar, 0.85
 
 Sales Taxes: 1.50
