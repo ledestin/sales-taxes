@@ -12,7 +12,7 @@ class Receipt
   end
 
   def to_s
-    result = <<EOF
+    <<EOF
 #{@goods.join("\n")}
 
 Sales Taxes: #{sprintf("%.2f", tax)}
