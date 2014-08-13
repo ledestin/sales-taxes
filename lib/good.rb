@@ -13,4 +13,8 @@ class Good
   def initialize quantity, name, price
     @quantity, @name, @price = quantity, name, price
   end
+
+  def total
+    price
+  end
 end
