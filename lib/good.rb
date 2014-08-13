@@ -14,6 +14,10 @@ class Good
     @quantity, @name, @price = quantity, name, price
   end
 
+  def tax
+    0
+  end
+
   def total
     price
   end

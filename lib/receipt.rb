@@ -3,6 +3,10 @@ class Receipt
     @goods = goods
   end
 
+  def tax
+    0
+  end
+
   def total
     @goods.map(&:total).inject(:+)
   end
