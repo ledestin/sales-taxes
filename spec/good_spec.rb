@@ -1,15 +1,17 @@
 require './lib/good'
 
+HEADER = "Quantity, Product, Price\n"
+
 describe Good do
   describe '#parse_all' do
     it "returns an array of Good elements" do
-      goods = Good.parse_all("1, 1, 1")
+      goods = Good.parse_all(HEADER + "1, 1, 1")
       expect(goods.size).to eq 1
       expect(goods.first).to be_a_kind_of(Good)
     end
 
     it "strips leading and trailing whitespace" do
-      good = Good.parse_all("1, book , 1").first
+      good = Good.parse_all(HEADER + "1, book , 1").first
       expect(good.name).to eq "book"
     end
   end
