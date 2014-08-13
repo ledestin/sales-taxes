@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/ledestin/sales-taxes.png)](https://travis-ci.org/ledestin/sales-taxes)
+[![Coverage Status] (https://coveralls.io/repos/ledestin/sales-taxes/badge.png)] (https://coveralls.io/r/ledestin/sales-taxes)
+[![Code Climate](https://codeclimate.com/github/ledestin/sales-taxes.png)](https://codeclimate.com/github/ledestin/sales-taxes)
+
 # SALES TAXES
 
 Basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical products that are exempt. Import duty is an additional sales tax applicable on all imported goods at a rate of 5%, with no exemptions.

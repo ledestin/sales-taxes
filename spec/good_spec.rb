@@ -1,3 +1,4 @@
+require 'spec_helper'
 require './lib/good'
 
 HEADER = "Quantity, Product, Price\n"
