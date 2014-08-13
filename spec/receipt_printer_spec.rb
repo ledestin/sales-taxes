@@ -39,4 +39,24 @@ Total: 65.15
 EOF
     run(INPUT, EXPECTED_OUTPUT)
   end
+
+  it "input 3" do
+    INPUT = <<EOF
+Quantity, Product, Price
+1, imported bottle of perfume, 27.99
+1, bottle of perfume, 18.99
+1, packet of headache pills, 9.75
+1, imported box of chocolates, 11.25
+EOF
+    EXPECTED_OUTPUT = <<EOF
+1, imported bottle of perfume, 32.19
+1, bottle of perfume, 20.89
+1, packet of headache pills, 9.75
+1, imported box of chocolates, 11.85
+
+Sales Taxes: 6.70
+Total: 74.68
+EOF
+    run(INPUT, EXPECTED_OUTPUT)
+  end
 end
