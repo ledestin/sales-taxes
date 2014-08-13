@@ -1,8 +1,9 @@
 class Receipt
   def initialize goods
+    @goods = goods
   end
 
   def total
-    12.49 + 0.85
+    @goods.map(&:total).inject(:+)
   end
 end
