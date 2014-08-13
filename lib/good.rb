@@ -26,6 +26,6 @@ class Good
   end
 
   def to_s
-    [quantity, name, total].map! { |el| el.to_s }.join(", ")
+    [quantity, name, sprintf("%.2f", total)].map! { |el| el.to_s }.join(", ")
   end
 end
