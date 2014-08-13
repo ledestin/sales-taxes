@@ -22,4 +22,21 @@ describe Good do
     expect(good.name).to eq "book"
     expect(good.price).to eq 12.49
   end
+
+  describe "#tax returns amount of tax for the good:" do
+    it "zero for books" do
+      good = Good.new 1, "book", 10.0
+      expect(good.tax).to be_zero
+    end
+
+    it "5% for imported books" do
+      good = Good.new 1, "imported book", 10.0
+      expect(good.tax).to eq 0.5
+    end
+
+    it "10% for music CDs" do
+      good = Good.new 1, "music CD", 14.99
+      expect(good.tax).to eq 1.5
+    end
+  end
 end

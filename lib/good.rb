@@ -1,4 +1,5 @@
 require 'csv'
+require './lib/tax_registry'
 
 class Good
   def self.parse_all str
@@ -17,7 +18,7 @@ class Good
   end
 
   def tax
-    0
+    (price * TaxRegistry.tax_for_good(name)).round(2)
   end
 
   def total
