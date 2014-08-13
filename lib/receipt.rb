@@ -10,4 +10,13 @@ class Receipt
   def total
     @goods.map(&:total).inject(:+)
   end
+
+  def to_s
+    result = <<EOF
+#{@goods.join("\n")}
+
+Sales Taxes: #{tax}
+Total: #{sprintf("%.2f", total)}
+EOF
+  end
 end

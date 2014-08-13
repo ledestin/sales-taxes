@@ -2,7 +2,9 @@ require 'csv'
 
 class Good
   def self.parse_all str
-    CSV.parse(str, :converters => :numeric).map! { |row|
+    data = CSV.parse(str, :converters => :numeric)
+    data.shift
+    data.map! { |row|
       row.each { |el| el.strip! if el.is_a?(String) }
       Good.new *row
     }
@@ -20,5 +22,9 @@ class Good
 
   def total
     price
+  end
+
+  def to_s
+    [quantity, name, price].map! { |el| el.to_s }.join(", ")
   end
 end
