@@ -22,10 +22,10 @@ class Good
   end
 
   def total
-    price
+    (price + tax).round(2)
   end
 
   def to_s
-    [quantity, name, price].map! { |el| el.to_s }.join(", ")
+    [quantity, name, total].map! { |el| el.to_s }.join(", ")
   end
 end
