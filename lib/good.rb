@@ -19,7 +19,6 @@ class Good
   end
 
   def tax
-    tax_rate = TaxRegistry.tax_rate_for_good(name)
     TaxCalculator.calc_tax(price, tax_rate)
   end
 
@@ -29,5 +28,10 @@ class Good
 
   def to_s
     [quantity, name, sprintf("%.2f", total)].map! { |el| el.to_s }.join(", ")
+  end
+
+  private
+  def tax_rate
+    TaxRegistry.tax_rate_for_good(name)
   end
 end
