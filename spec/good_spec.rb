@@ -17,13 +17,6 @@ describe Good do
     end
   end
 
-  it "#new fills atrributes from passed array" do
-    good = Good.new 1, "book", 12.49
-    expect(good.quantity).to eq 1
-    expect(good.name).to eq "book"
-    expect(good.price).to eq 12.49
-  end
-
   describe "#tax returns amount of tax for the good:" do
     it "zero for books" do
       good = Good.new 1, "book", 10.0
