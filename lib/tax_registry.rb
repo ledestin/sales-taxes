@@ -8,4 +8,8 @@ module TaxRegistry
     tax += IMPORT_TAX if name =~ /imported/
     tax.round(2)
   end
+
+  def tax_for_good name
+    TaxRegistry.tax_for_good name
+  end
 end
