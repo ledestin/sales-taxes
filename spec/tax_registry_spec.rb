@@ -45,8 +45,7 @@ describe TaxRegistry do
       end
 
       it "for imported bottle of perfume" do
-	expect(tax_rate_for_good("imported bottle of perfume")).to \
-	  eq 0.15
+	expect(tax_rate_for_good("imported bottle of perfume")).to eq 0.15
       end
     end
   end
