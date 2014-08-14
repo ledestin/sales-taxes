@@ -1,4 +1,8 @@
+require './lib/float_money'
+
 class Receipt
+  using FloatMoneyFormat
+
   def initialize goods
     @goods = goods
   end
@@ -15,8 +19,8 @@ class Receipt
     <<EOF
 #{@goods.join("\n")}
 
-Sales Taxes: #{sprintf("%.2f", tax)}
-Total: #{sprintf("%.2f", total)}
+Sales Taxes: #{tax.to_s(:money)}
+Total: #{total.to_s(:money)}
 EOF
   end
 end

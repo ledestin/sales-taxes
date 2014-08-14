@@ -1,8 +1,11 @@
 require 'csv'
+require './lib/float_money'
 require './lib/tax_calculator'
 require './lib/tax_registry'
 
 class Good
+  using FloatMoneyFormat
+
   def self.parse_all str
     data = CSV.parse(str, :converters => :numeric)
     data.shift
@@ -27,7 +30,7 @@ class Good
   end
 
   def to_s
-    [quantity, name, sprintf("%.2f", total)].map! { |el| el.to_s }.join(", ")
+    [quantity.to_s, name, total.to_s(:money)].join(", ")
   end
 
   private
