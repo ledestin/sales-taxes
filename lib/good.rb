@@ -1,7 +1,7 @@
-require 'csv'
-require './lib/float_money'
-require './lib/tax_calculator'
-require './lib/tax_registry'
+require "csv"
+require "./lib/float_money"
+require "./lib/tax_calculator"
+require "./lib/tax_registry"
 
 class Good
   using FloatMoneyFormat
