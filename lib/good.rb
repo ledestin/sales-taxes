@@ -19,7 +19,7 @@ class Good
   end
 
   def tax
-    tax_rate = TaxRegistry.tax_for_good(name)
+    tax_rate = TaxRegistry.tax_rate_for_good(name)
     TaxCalculator.calc_tax(price, tax_rate)
   end
 

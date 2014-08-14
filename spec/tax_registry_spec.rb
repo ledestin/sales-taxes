@@ -4,48 +4,48 @@ require './lib/tax_registry'
 include TaxRegistry
 
 describe TaxRegistry do
-  it "self.tax_for_good works" do
-    expect(TaxRegistry.tax_for_good("book")).to be_zero
+  it "self.tax_rate_for_good works" do
+    expect(TaxRegistry.tax_rate_for_good("book")).to be_zero
   end
 
-  describe "#tax_for_good returns tax:" do
+  describe "#tax_rate_for_good returns tax:" do
     context "zero" do
       it "for books" do
-	expect(tax_for_good("book")).to be_zero
+	expect(tax_rate_for_good("book")).to be_zero
       end
 
       it "for food" do
-	expect(tax_for_good("chocolate bar")).to be_zero
+	expect(tax_rate_for_good("chocolate bar")).to be_zero
       end
 
       it "for medical products" do
-	expect(tax_for_good("packet of headache pills")).to be_zero
+	expect(tax_rate_for_good("packet of headache pills")).to be_zero
       end
     end
 
     context "10% on all goods, except books, food and medical products, e.g." do
       it "music CD" do
-	expect(tax_for_good("music CD")).to eq 0.1
+	expect(tax_rate_for_good("music CD")).to eq 0.1
       end
 
       it "bottle of perfume" do
-	expect(tax_for_good("bottle of perfume")).to eq 0.1
+	expect(tax_rate_for_good("bottle of perfume")).to eq 0.1
       end
     end
 
     context "5% on all imported goods, with no exemptions" do
       it "for books" do
-	expect(tax_for_good("imported book")).to eq 0.05
+	expect(tax_rate_for_good("imported book")).to eq 0.05
       end
     end
 
     context "15% on imported items that are not exempt from sales tax" do
       it "for imported music CDs" do
-	expect(tax_for_good("imported music CD")).to eq 0.15
+	expect(tax_rate_for_good("imported music CD")).to eq 0.15
       end
 
       it "for imported bottle of perfume" do
-	expect(tax_for_good("imported bottle of perfume")).to \
+	expect(tax_rate_for_good("imported bottle of perfume")).to \
 	  eq 0.15
       end
     end
