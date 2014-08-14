@@ -1,4 +1,5 @@
 require 'csv'
+require './lib/tax_calculator'
 require './lib/tax_registry'
 
 class Good
@@ -18,7 +19,8 @@ class Good
   end
 
   def tax
-    round_tax(price * TaxRegistry.tax_for_good(name))
+    tax_rate = TaxRegistry.tax_for_good(name)
+    TaxCalculator.calc_tax(price, tax_rate)
   end
 
   def total
@@ -27,10 +29,5 @@ class Good
 
   def to_s
     [quantity, name, sprintf("%.2f", total)].map! { |el| el.to_s }.join(", ")
-  end
-
-  private
-  def round_tax number
-    ((number * (1 / 0.05)).ceil / (1 / 0.05)).round(2)
   end
 end
