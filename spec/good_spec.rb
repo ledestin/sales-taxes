@@ -50,4 +50,9 @@ describe Good do
       expect(good.total).to eq 22
     end
   end
+
+  it "#to_s returns quantity, name and total" do
+    good = Good.new 2, "book", 10.0
+    expect(good.to_s).to eq "2, book, 20.00"
+  end
 end
