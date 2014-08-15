@@ -1,6 +1,6 @@
-require 'spec_helper'
-require './lib/good'
-require './lib/receipt'
+require "spec_helper"
+require "./lib/good"
+require "./lib/receipt"
 
 describe Receipt do
   [:total, :tax].each do |method|

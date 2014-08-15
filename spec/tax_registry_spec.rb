@@ -1,5 +1,5 @@
-require 'spec_helper'
-require './lib/tax_registry'
+require "spec_helper"
+require "./lib/tax_registry"
 
 def tax_rate_for_good name
   TaxRegistry.tax_rate_for_good name

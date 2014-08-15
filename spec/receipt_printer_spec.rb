@@ -1,7 +1,7 @@
-require 'open3'
+require "open3"
 
 def run input, expected_output
-  output, = Open3.capture2e('./receipt_printer', :stdin_data => input)
+  output, = Open3.capture2e("./receipt_printer", :stdin_data => input)
   expect(output).to eq expected_output
 end
 
