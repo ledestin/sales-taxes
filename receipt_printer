@@ -3,5 +3,5 @@
 require './lib/good'
 require './lib/receipt'
 
-goods = Good.parse_all($stdin.read)
+goods = GoodPack.parse_all($stdin.read)
 puts Receipt.new(goods)

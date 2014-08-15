@@ -3,14 +3,14 @@ require "./lib/float_money_format"
 require "./lib/tax_calculator"
 require "./lib/tax_registry"
 
-class Good
+class GoodPack
   using FloatMoneyFormat
 
   def self.parse_all str
     strip_whitespace_converter = lambda { |el| el.strip! if el.is_a?(String) }
     data = CSV.parse(str, :converters => [:numeric, strip_whitespace_converter])
     data.shift # skip header.
-    data.map! { |row| Good.new *row }
+    data.map! { |row| GoodPack.new *row }
   end
 
   attr_reader :quantity, :name, :price
