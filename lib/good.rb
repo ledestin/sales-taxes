@@ -22,11 +22,11 @@ class Good
   end
 
   def tax
-    TaxCalculator.calc_tax(price, tax_rate)
+    TaxCalculator.calc_tax(price, tax_rate) * quantity
   end
 
   def total
-    ((price + tax) * quantity).round(2)
+    (price * quantity + tax).round(2)
   end
 
   def to_s

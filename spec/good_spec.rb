@@ -33,6 +33,11 @@ describe Good do
       expect(good.tax).to eq 1.5
     end
 
+    it "double for 2 books" do
+      good = Good.new 2, "music CD", 10
+      expect(good.tax).to eq 2
+    end
+
     it "rounded up to the nearest 0.05" do
       good = Good.new 1, "imported bottle of perfume", 47.50
       expect(good.tax).to eq 7.15
