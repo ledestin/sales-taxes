@@ -22,7 +22,7 @@ class Good
   end
 
   def tax
-    TaxCalculator.calc_tax(price, tax_rate) * quantity
+    tax_for_single_good * quantity
   end
 
   def total
@@ -34,6 +34,10 @@ class Good
   end
 
   private
+  def tax_for_single_good
+    TaxCalculator.calc_tax(price, tax_rate)
+  end
+
   def tax_rate
     TaxRegistry.tax_rate_for_good(name)
   end
