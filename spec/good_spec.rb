@@ -30,42 +30,36 @@ describe Good do
   end
 
   describe "#tax returns amount of tax for the good:" do
-    it "10% for imported books" do
-      good = Good.new 1, "imported book", 10.0, tax_registry: FakeTaxRegistry
+    it "10% for item" do
+      good = Good.new 1, "item", 10.0, tax_registry: FakeTaxRegistry
       expect(good.tax).to eq 1
     end
 
-    it "10% for music CDs" do
-      good = Good.new 1, "music CD", 14.99, tax_registry: FakeTaxRegistry
-      expect(good.tax).to eq 1.5
-    end
-
-    it "double for 2 books" do
-      good = Good.new 2, "music CD", 10, tax_registry: FakeTaxRegistry
+    it "double for 2 items" do
+      good = Good.new 2, "item", 10, tax_registry: FakeTaxRegistry
       expect(good.tax).to eq 2
     end
 
     it "rounded up to the nearest 0.05" do
-      good = Good.new 1, "imported bottle of perfume", 47.30,
-	tax_registry: FakeTaxRegistry
+      good = Good.new 1, "item", 47.30, tax_registry: FakeTaxRegistry
       expect(good.tax).to eq 4.75
     end
   end
 
   describe "#total returns price + tax, multiplied by quantity" do
-    it "one book" do
-      good = Good.new 1, "music CD", 10.0, tax_registry: FakeTaxRegistry
+    it "one item" do
+      good = Good.new 1, "item", 10.0, tax_registry: FakeTaxRegistry
       expect(good.total).to eq 11
     end
 
-    it "two books" do
-      good = Good.new 2, "music CD", 10.0, tax_registry: FakeTaxRegistry
+    it "two items" do
+      good = Good.new 2, "item", 10.0, tax_registry: FakeTaxRegistry
       expect(good.total).to eq 22
     end
   end
 
   it "#to_s returns quantity, name and total" do
-    good = Good.new 2, "book", 10.0, tax_registry: FakeTaxRegistry
-    expect(good.to_s).to eq "2, book, 22.00"
+    good = Good.new 2, "item", 10.0, tax_registry: FakeTaxRegistry
+    expect(good.to_s).to eq "2, item, 22.00"
   end
 end
