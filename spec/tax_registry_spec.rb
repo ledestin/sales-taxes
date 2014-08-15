@@ -43,11 +43,13 @@ describe TaxRegistry do
 
     context "15% on imported items that are not exempt from sales tax" do
       it "for imported music CDs" do
-	expect(tax_rate_for_good("imported music CD")).to eq 0.15
+	expect(tax_rate_for_good("imported music CD")).to \
+	  be_within(0.001).of(0.15)
       end
 
       it "for imported bottle of perfume" do
-	expect(tax_rate_for_good("imported bottle of perfume")).to eq 0.15
+	expect(tax_rate_for_good("imported bottle of perfume")).to \
+	  be_within(0.001).of(0.15)
       end
     end
   end
