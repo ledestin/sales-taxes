@@ -15,8 +15,9 @@ class Good
 
   attr_reader :quantity, :name, :price
 
-  def initialize quantity, name, price
+  def initialize quantity, name, price, tax_registry: TaxRegistry
     @quantity, @name, @price = quantity, name, price
+    @tax_registry = tax_registry
   end
 
   def tax
@@ -37,6 +38,6 @@ class Good
   end
 
   def tax_rate
-    TaxRegistry.tax_rate_for_good(name)
+    @tax_registry.tax_rate_for_good(name)
   end
 end
