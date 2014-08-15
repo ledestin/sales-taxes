@@ -17,7 +17,7 @@ describe Good do
     end
 
     it "converts strings to numbers" do
-      good = Good.parse_all(HEADER + "1, book , 10.50").first
+      good = Good.parse_all(HEADER + "1, book, 10.50").first
       expect(good.quantity).to eq 1
       expect(good.price).to eq 10.50
     end
