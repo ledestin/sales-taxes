@@ -1,4 +1,4 @@
-require './lib/float_money'
+require './lib/float_money_format'
 
 class Receipt
   using FloatMoneyFormat
