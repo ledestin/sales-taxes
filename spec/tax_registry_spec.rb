@@ -1,7 +1,9 @@
 require 'spec_helper'
 require './lib/tax_registry'
 
-include TaxRegistry
+def tax_rate_for_good name
+  TaxRegistry.tax_rate_for_good name
+end
 
 describe TaxRegistry do
   it "self.tax_rate_for_good works" do
