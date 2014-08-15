@@ -8,7 +8,7 @@ class Good
 
   def self.parse_all str
     data = CSV.parse(str, :converters => :numeric)
-    data.shift
+    data.shift # skip header.
     data.map! { |row|
       row.each { |el| el.strip! if el.is_a?(String) }
       Good.new *row
