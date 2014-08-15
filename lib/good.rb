@@ -9,12 +9,15 @@ class Good
   def self.parse_all str
     data = CSV.parse(str, :converters => :numeric)
     data.shift # skip header.
-    data.map! { |row|
-      row.each { |el| el.strip! if el.is_a?(String) }
-      Good.new *row
-    }
+    data.map! { |row| Good.new *strip_whitespace(row) }
   end
 
+  private
+  def self.strip_whitespace ar
+    ar.each { |el| el.strip! if el.is_a?(String) }
+  end
+
+  public
   attr_reader :quantity, :name, :price
 
   def initialize quantity, name, price
