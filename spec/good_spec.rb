@@ -1,10 +1,10 @@
-require 'spec_helper'
-require './lib/good'
+require "spec_helper"
+require "./lib/good"
 
 HEADER = "Quantity, Product, Price\n"
 
 describe Good do
-  describe '#parse_all' do
+  describe "#parse_all" do
     it "returns an array of Good elements" do
       goods = Good.parse_all(HEADER + "1, 1, 1")
       expect(goods.size).to eq 1
