@@ -52,7 +52,7 @@ describe Good do
     end
   end
 
-  describe "#total returns sum of price + tax, multiplied by quantity" do
+  describe "#total returns price + tax, multiplied by quantity" do
     it "one book" do
       good = Good.new 1, "music CD", 10.0, tax_registry: FakeTaxRegistry
       expect(good.total).to eq 11
