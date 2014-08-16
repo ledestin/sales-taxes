@@ -4,6 +4,10 @@ using FloatMoneyFormat
 
 describe FloatMoneyFormat do
   describe "to_s :money always uses 2 digits after floating point," do
+    it "to_s() keeps working" do
+      expect(1.05.to_s).to eq "1.05"
+    end
+
     it "when there's nothing after it" do
       expect(1.0.to_s(:money)).to eq "1.00"
     end

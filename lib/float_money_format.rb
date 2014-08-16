@@ -1,6 +1,6 @@
 module FloatMoneyFormat
   refine Float do
-    def to_s style
+    def to_s style = :none
       return super() unless style == :money
 
       sprintf("%.2f", self)
