@@ -6,9 +6,10 @@ require "./lib/tax_registry"
 class GoodPack
   using NumericMoneyFormat
 
-  def self.parse_all str
+  def self.parse_all string
     strip_whitespace_converter = lambda { |el| el.strip! if el.is_a?(String) }
-    data = CSV.parse(str, :converters => [:numeric, strip_whitespace_converter])
+    data = CSV.parse(string,
+      :converters => [:numeric, strip_whitespace_converter])
     data.shift # skip header.
     data.map! { |row| GoodPack.new *row }
   end
