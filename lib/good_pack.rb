@@ -20,7 +20,7 @@ class GoodPack
   end
 
   def tax
-    tax_for_single_good * quantity
+    unit_tax * quantity
   end
 
   def total
@@ -32,11 +32,11 @@ class GoodPack
   end
 
   private
-  def tax_for_single_good
-    TaxCalculator.calc_tax(unit_price, tax_rate)
-  end
-
   def tax_rate
     @tax_rates.tax_rate_for_good(name)
+  end
+
+  def unit_tax
+    TaxCalculator.calc_tax(unit_price, tax_rate)
   end
 end
