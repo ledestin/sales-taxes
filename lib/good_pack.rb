@@ -4,7 +4,7 @@ require "./lib/tax_calculator"
 require "./lib/tax_registry"
 
 class GoodPack
-  using FloatMoneyFormat
+  using NumericMoneyFormat
 
   def self.parse_all str
     strip_whitespace_converter = lambda { |el| el.strip! if el.is_a?(String) }
@@ -29,7 +29,7 @@ class GoodPack
   end
 
   def to_s
-    [quantity.to_s, name, total.to_s(:money)].join(", ")
+    [quantity.to_s, name, total.to_formatted_s(:money)].join(", ")
   end
 
   private

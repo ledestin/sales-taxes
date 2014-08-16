@@ -1,8 +1,8 @@
 require "./lib/float_money_format"
 
-using FloatMoneyFormat
+using NumericMoneyFormat
 
-describe FloatMoneyFormat do
+describe NumericMoneyFormat do
   describe "to_s :money always uses 2 digits after floating point," do
     it "when there's nothing after it" do
       expect(1.0.to_formatted_s(:money)).to eq "1.00"
