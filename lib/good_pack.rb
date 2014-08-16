@@ -7,9 +7,7 @@ class GoodPack
   using NumericMoneyFormat
 
   def self.parse_all string
-    strip_whitespace_converter = lambda { |el| el.strip! if el.is_a?(String) }
-    data = CSV.parse(string,
-      :converters => [:numeric, strip_whitespace_converter])
+    data = CSV.parse(string, :col_sep => ", ", :converters => :numeric)
     data.shift # skip header.
     data.map! { |row| GoodPack.new *row }
   end

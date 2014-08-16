@@ -17,8 +17,8 @@ describe GoodPack do
       expect(goods.first).to be_a_kind_of(GoodPack)
     end
 
-    it "strips leading and trailing whitespace" do
-      good = GoodPack.parse_all(HEADER + "1, book , 1").first
+    it "strips leading whitespace" do
+      good = GoodPack.parse_all(HEADER + "1, book, 1").first
       expect(good.name).to eq "book"
     end
 
