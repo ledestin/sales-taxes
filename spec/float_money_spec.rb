@@ -4,16 +4,16 @@ using FloatMoneyFormat
 
 describe FloatMoneyFormat do
   describe "to_s :money always uses 2 digits after floating point," do
-    it "to_s() keeps working" do
-      expect(1.05.to_s).to eq "1.05"
-    end
-
     it "when there's nothing after it" do
-      expect(1.0.to_s(:money)).to eq "1.00"
+      expect(1.0.to_formatted_s(:money)).to eq "1.00"
     end
 
     it "when there's >2 digits after it" do
-      expect(1.1111.to_s(:money)).to eq "1.11"
+      expect(1.1111.to_formatted_s(:money)).to eq "1.11"
+    end
+
+    it "also works for integers" do
+      expect(10.to_formatted_s(:money)).to eq "10.00"
     end
   end
 end
