@@ -1,5 +1,5 @@
 require "csv"
-require "./lib/float_money_format"
+require "./lib/numeric_money_format"
 require "./lib/tax_calculator"
 require "./lib/tax_registry"
 
