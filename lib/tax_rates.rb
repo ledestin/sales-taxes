@@ -1,4 +1,4 @@
-module TaxRegistry
+module TaxRates
   SALES_TAX = 0.1
   IMPORT_TAX = 0.05
 

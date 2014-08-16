@@ -1,13 +1,13 @@
 require "spec_helper"
-require "./lib/tax_registry"
+require "./lib/tax_rates"
 
 def tax_rate_for_good name
-  TaxRegistry.tax_rate_for_good name
+  TaxRates.tax_rate_for_good name
 end
 
-describe TaxRegistry do
+describe TaxRates do
   it "self.tax_rate_for_good works" do
-    expect(TaxRegistry.tax_rate_for_good("book")).to be_zero
+    expect(TaxRates.tax_rate_for_good("book")).to be_zero
   end
 
   describe "#tax_rate_for_good returns tax:" do

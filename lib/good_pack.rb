@@ -1,7 +1,7 @@
 require "csv"
 require "./lib/numeric_money_format"
 require "./lib/tax_calculator"
-require "./lib/tax_registry"
+require "./lib/tax_rates"
 
 class GoodPack
   using NumericMoneyFormat
@@ -16,9 +16,9 @@ class GoodPack
 
   attr_reader :quantity, :name, :price
 
-  def initialize quantity, name, price, tax_registry: TaxRegistry
+  def initialize quantity, name, price, tax_rates: TaxRates
     @quantity, @name, @price = quantity, name, price
-    @tax_registry = tax_registry
+    @tax_rates = tax_rates
   end
 
   def tax
@@ -39,6 +39,6 @@ class GoodPack
   end
 
   def tax_rate
-    @tax_registry.tax_rate_for_good(name)
+    @tax_rates.tax_rate_for_good(name)
   end
 end
