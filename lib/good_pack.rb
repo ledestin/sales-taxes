@@ -14,10 +14,10 @@ class GoodPack
     data.map! { |row| GoodPack.new *row }
   end
 
-  attr_reader :quantity, :name, :price
+  attr_reader :quantity, :name, :unit_price
 
-  def initialize quantity, name, price, tax_rates: TaxRates
-    @quantity, @name, @price = quantity, name, price
+  def initialize quantity, name, unit_price, tax_rates: TaxRates
+    @quantity, @name, @unit_price = quantity, name, unit_price
     @tax_rates = tax_rates
   end
 
@@ -26,7 +26,7 @@ class GoodPack
   end
 
   def total
-    (price * quantity) + tax
+    (unit_price * quantity) + tax
   end
 
   def to_s
@@ -35,7 +35,7 @@ class GoodPack
 
   private
   def tax_for_single_good
-    TaxCalculator.calc_tax(price, tax_rate)
+    TaxCalculator.calc_tax(unit_price, tax_rate)
   end
 
   def tax_rate

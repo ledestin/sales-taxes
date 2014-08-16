@@ -25,7 +25,7 @@ describe GoodPack do
     it "converts strings to numbers" do
       good = GoodPack.parse_all(HEADER + "1, book, 10.50").first
       expect(good.quantity).to eq 1
-      expect(good.price).to eq 10.50
+      expect(good.unit_price).to eq 10.50
     end
   end
 
@@ -46,7 +46,7 @@ describe GoodPack do
     end
   end
 
-  describe "#total returns price + tax, multiplied by quantity" do
+  describe "#total returns unit_price + tax, multiplied by quantity" do
     it "one item" do
       good = GoodPack.new 1, "item", 10.0, tax_rates: FakeTaxRates
       expect(good.total).to eq 11
