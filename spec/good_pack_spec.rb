@@ -1,8 +1,6 @@
 require "spec_helper"
 require "./lib/good_pack"
 
-HEADER = "Quantity, Product, Price\n"
-
 module FakeTaxRates
   def self.tax_rate_for_good name
     0.1
@@ -10,25 +8,6 @@ module FakeTaxRates
 end
 
 describe GoodPack do
-  describe "#parse_all" do
-    it "returns an array of GoodPack elements" do
-      goods = GoodPack.parse_all(HEADER + "1, 1, 1")
-      expect(goods.size).to eq 1
-      expect(goods.first).to be_a_kind_of(GoodPack)
-    end
-
-    it "strips leading whitespace" do
-      good = GoodPack.parse_all(HEADER + "1, book, 1").first
-      expect(good.name).to eq "book"
-    end
-
-    it "converts strings to numbers" do
-      good = GoodPack.parse_all(HEADER + "1, book, 10.50").first
-      expect(good.quantity).to eq 1
-      expect(good.unit_price).to eq 10.50
-    end
-  end
-
   describe "#tax returns amount of tax for the good:" do
     it "10% for item" do
       good = GoodPack.new 1, "item", 10.0, tax_rates: FakeTaxRates

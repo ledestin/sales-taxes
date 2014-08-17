@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/good_pack'
-require './lib/receipt'
+require './lib/shopping_cart'
 
-goods = GoodPack.parse_all($stdin.read)
-puts Receipt.new(goods)
+cart = ShoppingCart.parse($stdin.read)
+puts cart.receipt
