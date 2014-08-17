@@ -6,7 +6,7 @@ class ShoppingCart
   def self.parse(string)
     data = CSV.parse(string, :col_sep => ", ", :converters => :numeric)
     data.shift # skip header.
-    ShoppingCart.new(data.map! { |row| Item.new *row })
+    new data.map! { |row| Item.new *row }
   end
 
   attr_reader :items
