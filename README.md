@@ -2,6 +2,23 @@
 [![Coverage Status] (https://coveralls.io/repos/ledestin/sales-taxes/badge.png)] (https://coveralls.io/r/ledestin/sales-taxes)
 [![Code Climate](https://codeclimate.com/github/ledestin/sales-taxes.png)](https://codeclimate.com/github/ledestin/sales-taxes)
 
+## Installation
+
+Ruby 2.1 is required.
+
+```
+git clone https://github.com/ledestin/sales-taxes.git
+cd sales-taxes
+bundle
+```
+
+## Usage
+
+Run `./receipt_printer < <input file>` to pass input on stdin.
+
+Run `rake` to run all tests. You'll find acceptance tests in
+`spec/receipt_printer_spec.rb`.
+
 # SALES TAXES
 
 Basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical products that are exempt. Import duty is an additional sales tax applicable on all imported goods at a rate of 5%, with no exemptions.
