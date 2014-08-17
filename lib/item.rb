@@ -18,7 +18,7 @@ class ShoppingCart
     end
 
     def total
-      (unit_price * quantity) + tax
+      unit_total * quantity
     end
 
     def to_s
@@ -32,6 +32,10 @@ class ShoppingCart
 
     def unit_tax
       TaxCalculator.calc_tax(unit_price, tax_rate)
+    end
+
+    def unit_total
+      unit_price + unit_tax
     end
   end
 end
