@@ -5,10 +5,10 @@ HEADER = "Quantity, Product, Price\n"
 
 describe ShoppingCart do
   describe "#parse" do
-    it "returns a shopping cart with GoodPack items" do
+    it "returns a shopping cart with ShoppingCart::Item items" do
       cart = ShoppingCart.parse(HEADER + "1, 1, 1")
       expect(cart.items.size).to eq 1
-      expect(cart.items.first).to be_a_kind_of(GoodPack)
+      expect(cart.items.first).to be_a_kind_of(ShoppingCart::Item)
     end
 
     it "strips leading whitespace" do
