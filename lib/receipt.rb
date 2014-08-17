@@ -4,21 +4,21 @@ class ShoppingCart
   class Receipt
     using NumericMoneyFormat
 
-    def initialize(goods)
-      @goods = goods
+    def initialize(items)
+      @items = items
     end
 
     def tax
-      @goods.map(&:tax).inject(:+)
+      @items.map(&:tax).inject(:+)
     end
 
     def total
-      @goods.map(&:total).inject(:+)
+      @items.map(&:total).inject(:+)
     end
 
     def to_s
       <<EOF
-#{@goods.join("\n")}
+#{@items.join("\n")}
 
 Sales Taxes: #{tax.to_formatted_s :money}
 Total: #{total.to_formatted_s :money}
