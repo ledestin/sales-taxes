@@ -1,5 +1,5 @@
 require "spec_helper"
-require "./lib/good_pack"
+require "./lib/item"
 require "./lib/receipt"
 
 describe Receipt do

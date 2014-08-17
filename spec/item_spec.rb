@@ -1,5 +1,5 @@
 require "spec_helper"
-require "./lib/good_pack"
+require "./lib/item"
 
 module FakeTaxRates
   def self.tax_rate_for_good name

@@ -1,5 +1,5 @@
 require "csv"
-require "./lib/good_pack"
+require "./lib/item"
 require "./lib/receipt"
 
 class ShoppingCart
