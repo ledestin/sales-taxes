@@ -16,6 +16,6 @@ class ShoppingCart
   end
 
   def receipt
-    Receipt.new(items)
+    Receipt.new items
   end
 end

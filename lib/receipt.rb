@@ -20,8 +20,8 @@ class ShoppingCart
       <<EOF
 #{@goods.join("\n")}
 
-Sales Taxes: #{tax.to_formatted_s(:money)}
-Total: #{total.to_formatted_s(:money)}
+Sales Taxes: #{tax.to_formatted_s :money}
+Total: #{total.to_formatted_s :money}
 EOF
     end
   end

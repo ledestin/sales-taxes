@@ -27,11 +27,11 @@ class ShoppingCart
 
     private
     def tax_rate
-      @tax_rates.tax_rate_for_good(name)
+      @tax_rates.tax_rate_for_good name
     end
 
     def unit_tax
-      TaxCalculator.calc_tax(unit_price, tax_rate)
+      TaxCalculator.calc_tax unit_price, tax_rate
     end
 
     def unit_total
