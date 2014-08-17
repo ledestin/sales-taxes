@@ -17,7 +17,7 @@ describe NumericMoneyFormat do
 	expect(1.1111.to_formatted_s(:money)).to eq "1.11"
       end
 
-      it "also works for integers" do
+      it "when it's an integer" do
 	expect(10.to_formatted_s(:money)).to eq "10.00"
       end
     end

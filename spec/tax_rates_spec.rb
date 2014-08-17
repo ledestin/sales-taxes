@@ -6,10 +6,6 @@ def tax_rate_for_good name
 end
 
 describe TaxRates do
-  it "self.tax_rate_for_good works" do
-    expect(TaxRates.tax_rate_for_good("book")).to be_zero
-  end
-
   describe "#tax_rate_for_good returns tax:" do
     context "zero" do
       it "for books" do
