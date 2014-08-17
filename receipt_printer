@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/shopping_cart'
+require "./lib/shopping_cart"
 
-cart = ShoppingCart.parse($stdin.read)
+cart = ShoppingCart.parse $stdin.read
 puts cart.receipt
