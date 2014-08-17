@@ -8,7 +8,7 @@ class ShoppingCart
 
     attr_reader :quantity, :name, :unit_price
 
-    def initialize quantity, name, unit_price, tax_rates: TaxRates
+    def initialize(quantity, name, unit_price, tax_rates: TaxRates)
       @quantity, @name, @unit_price = quantity, name, unit_price
       @tax_rates = tax_rates
     end

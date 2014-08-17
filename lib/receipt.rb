@@ -4,7 +4,7 @@ class ShoppingCart
   class Receipt
     using NumericMoneyFormat
 
-    def initialize goods
+    def initialize(goods)
       @goods = goods
     end
 
