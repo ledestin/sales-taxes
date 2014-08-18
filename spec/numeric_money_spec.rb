@@ -1,3 +1,4 @@
+require "spec_helper"
 require "./lib/numeric_money_format"
 
 using NumericMoneyFormat
