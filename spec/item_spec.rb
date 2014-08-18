@@ -2,7 +2,7 @@ require "spec_helper"
 require "./lib/item"
 
 module FakeTaxRates
-  def self.tax_rate_for_good(name)
+  def self.rate_for_product(name)
     0.1
   end
 end

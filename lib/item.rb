@@ -27,7 +27,7 @@ class ShoppingCart
 
     private
     def tax_rate
-      @tax_rates.tax_rate_for_good name
+      @tax_rates.rate_for_product name
     end
 
     def unit_tax
