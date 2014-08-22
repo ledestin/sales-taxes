@@ -3,20 +3,29 @@ require "./lib/item"
 require "./lib/receipt"
 
 describe ShoppingCart::Receipt do
-  [:total, :tax].each do |method|
-    describe "##{method} returns sum of all items' ##{method}:" do
-      it "for one item" do
-	items = [ShoppingCart::Item.new(1, "book", 12.49)]
-	expect(ShoppingCart::Receipt.new(items).send(method)).to eq \
-	  items.map(&method).inject(:+)
-      end
+  let(:items) { [double(ShoppingCart::Item, :tax => 1, :total => 12.49)] }
+  let(:multiple_items) {
+    [double(ShoppingCart::Item, :tax => 1, :total => 12),
+      double(ShoppingCart::Item, :tax => 0.10, :total => 3)]
+  }
 
-      it "for multiple items" do
-	items = [ShoppingCart::Item.new(1, "book", 12.49),
-	  ShoppingCart::Item.new(1, "chocolate bar", 0.85)]
-	expect(ShoppingCart::Receipt.new(items).send(method)).to eq \
-	  items.map(&method).inject(:+)
-      end
+  describe "#tax sums all items' #tax" do
+    it "for one item" do
+      expect(ShoppingCart::Receipt.new(items).tax).to eq 1
+    end
+
+    it "for multiple items" do
+      expect(ShoppingCart::Receipt.new(multiple_items).tax).to eq 1.10
+    end
+  end
+
+  describe "#total sums all items' #total" do
+    it "for one item" do
+      expect(ShoppingCart::Receipt.new(items).total).to eq 12.49
+    end
+
+    it "for multiple items" do
+      expect(ShoppingCart::Receipt.new(multiple_items).total).to eq 15
     end
   end
 end
